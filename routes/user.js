@@ -1,7 +1,7 @@
 const router = require("express").Router()
 const User = require("../models/User.js")
 const {verifyToken,verifyTokenAndAdmin} = require("../middlewares/verifyToken")
-const { JsonWebTokenError } = require("jsonwebtoken")
+const jwt = require("jsonwebtoken")
 
 
 

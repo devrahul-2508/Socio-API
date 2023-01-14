@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const userRoute = require("./routes/user")
 const authRoute = require("./routes/auth")
+const postRoute = require("./routes/post")
 
 app.use(express.json())
 
@@ -23,6 +24,7 @@ app.get("/",(req,res)=>{
 
 app.use("/api/users",userRoute)
 app.use("/api/auth",authRoute)
+app.use("/api/posts",postRoute)
 
 
 app.listen(3000,(req,res)=>{
