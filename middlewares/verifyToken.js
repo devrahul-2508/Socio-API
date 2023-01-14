@@ -1,4 +1,3 @@
-const e = require("express")
 const jwt = require("jsonwebtoken")
 
 const verifyToken = (req,res,next)=>{
@@ -30,24 +29,22 @@ const verifyToken = (req,res,next)=>{
             "response": null
            })
     }
+}
 
-
-
-    const verifyTokenAndAdmin = (req,res,next)=>{
-        verifyToken(req,res,()=>{
-            if (req.user.isAdmin) {
-                next()
-            }
-            else{
-                res.json({
-                    "success": false,
-                    "code": 500,
-                    "message": "You are not allowed to do that!",
-                    "response": null
-                   })
-            }
-        })
-    }
+const verifyTokenAndAdmin = (req,res,next)=>{
+    verifyToken(req,res,()=>{
+        if (req.user.isAdmin) {
+            next()
+        }
+        else{
+            res.json({
+                "success": false,
+                "code": 500,
+                "message": "You are not allowed to do that!",
+                "response": null
+               })
+        }
+    })
 }
 
 module.exports = {verifyToken,verifyTokenAndAdmin}
