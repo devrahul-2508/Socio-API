@@ -1,10 +1,9 @@
 const router = require("express").Router()
+const User = require("../models/User.js")
 
 
 
-router.get("/",(req,res)=>{
-    res.send("Welcome to user page")
-})
+
 
 
 module.exports = router
