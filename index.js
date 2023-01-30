@@ -7,6 +7,8 @@ const morgan = require('morgan');
 const userRoute = require("./routes/user")
 const authRoute = require("./routes/auth")
 const postRoute = require("./routes/post")
+const conversationRoute = require("./routes/conversation")
+const messageRoute = require("./routes/messages")
 
 app.use(express.json())
 
@@ -25,6 +27,8 @@ app.get("/",(req,res)=>{
 app.use("/api/users",userRoute)
 app.use("/api/auth",authRoute)
 app.use("/api/posts",postRoute)
+app.use("/api/conversation",conversationRoute)
+app.use("/api/messages",messageRoute)
 
 
 app.listen(3000,(req,res)=>{
